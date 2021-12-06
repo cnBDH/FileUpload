@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver # 指定使用的驱动
+    url: jdbc:mysql://121.41.53.161:3306/Netdisk?useUnicode=true&characterEncoding=utf8 # spring 是数据库名，连接字符串要指明编码，否则中文通过表单写入数据库时可能会出现乱码
+    username: root
+    password: xiaomi111
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+      location:
+      file-size-threshold: 0
+      resolve-lazily: false
+mybatis:
+  typeAliasesPackage: com.zjrcu.Dao
+  mapperLocations: classpath:mapper/*.xml
+  #configLocation: classpath:/mybatis-config.xml
