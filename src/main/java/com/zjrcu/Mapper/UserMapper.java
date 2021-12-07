@@ -9,8 +9,6 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.zjrcu.Dao.User;
-
 
 @Mapper
 public interface UserMapper {
@@ -20,6 +18,9 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE id=#{id}")
     public User getById(Integer id);
+
+    @Select("select count(*) from user where username=#{username} and password=#{password}")
+    public int verifyLoginUser(String username,String password);
 
     @Delete("DELETE FROM user WHERE id=#{id}")
     public int deleteById(Integer id);
@@ -31,4 +32,5 @@ public interface UserMapper {
 
     @Update("UPDATE user SET password=#{password} WHERE id=#{id}")
     public int updatePassword(User user);
+
 }

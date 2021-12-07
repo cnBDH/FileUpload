@@ -1,15 +1,15 @@
-package com.zjrcu.Dao;
+package com.zjrcu.Mapper;
+
+import com.zjrcu.Mapper.UserMapper;
 
 public class User {
-    private Integer id;
     private String username;
     private String password;
-    public Integer getId() {
-        return id;
+    public User(String Username,String Password) {
+        this.username = Username;
+        this.password = Password;
     }
-    public void setId(Integer id) {
-        this.id = id;
-    }
+
     public String getUsername() {
         return username;
     }

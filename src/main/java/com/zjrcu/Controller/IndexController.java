@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zjrcu.Dao.User;
+import com.zjrcu.Mapper.User;
 import com.zjrcu.Mapper.UserMapper;
 
 @Controller
@@ -52,4 +52,5 @@ public class IndexController {
     public int deleteUser(@PathVariable("id")Integer id) {
         return usermapper.deleteById(id);
     }
+
 }
