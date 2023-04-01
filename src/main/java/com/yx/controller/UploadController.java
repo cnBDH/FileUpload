@@ -1,17 +1,18 @@
-package com.zjrcu.Controller;
+package com.yx.controller;
 
-import java.io.File;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
+/**
+ * @author YinXiong
+ */
 @Controller
 public class UploadController {
-
-    @RequestMapping("/upload")
-    public String success(){
-        return "upload";
-    }
 
     @PostMapping("/upload")
     @ResponseBody
@@ -24,25 +25,22 @@ public class UploadController {
             System.out.println("文件组件名称Name:"+file.getName());
             System.out.println("文件大小:"+file.getSize());
             System.out.println("文件原名称OriginalFileName:"+file.getOriginalFilename());
-            String path = "F:\\JetBrainsWorkSpace\\IDEA WorkSpace\\location";
+            String path = "F:\\JetBrainsWorkSpace\\upload";
 
             File f = new File(path);
-            if (!f.exists()){//如果文件路径不存在，就创建相关目录
+            //如果文件路径不存在，就创建相关目录
+            if (!f.exists()){
                 f.mkdir();
             }
             // 文件写入
             File dir = new File(path+"\\" +file.getOriginalFilename());
             file.transferTo(dir);
+
             return "上传单个文件成功";
         }catch (Exception e) {
             e.printStackTrace();
             return "上传单个文件失败";
         }
-    }
-
-    @RequestMapping("/")
-    public String error(){
-        return "error";
     }
 
 }

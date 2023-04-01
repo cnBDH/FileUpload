@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>私人网盘</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div id="login_box">
+    <h1>登录</h1>
+    <div class="form-group">
+        <img src="images/login_user.png" class="smallimg">
+        <input id="username" type="text" class="but1" maxlength="30" required="required" placeholder="用户名">
+    </div>
+    <div class="form-group">
+        <img src="images/login_pwd.png" class="smallimg">
+        <input id="password" type="password" class="but1" maxlength="30" required="required" placeholder="密码">
+    </div>
+    <input id="sign_in" class="but2" type="button" th:value="登录"/>
+    <input id="enroll" class="but2" type="button" onclick="window.location.href='register';" th:value="注册"/>
+</div>
+</body>
+<script>
+    $(function() {
+        $("#sign_in").click(function () {
+            var name1 = $("#username").val();
+            var password1 = $("#password").val();
+            $.ajax({
+                url: "/login/login",
+                type: "post",
+                data: {
+                    "username": name1,
+                    "password": password1
+                },
+                dataType: "json",
+                success: function (results) {
+
+                }
+            })
+        })
+    })
+
+</script>
+</html>

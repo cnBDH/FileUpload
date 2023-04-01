@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="register/html; charset=gb2312">
+    <title>私人网盘</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+</head>
+
+<body>
+<div id="loginDiv">
+    <form id="register" action="/admin/register" method="post">
+        <h1>注 册</h1>
+        <p>用户姓名:<input id="username" type="text" autofocus required><label id="name_trip"></label></p>
+
+        <p>用户密码:<input id="password" type="password" required><label id="password_trip"></label></p>
+
+        <p>确认密码:<input id="ensurePassword" type="password" required><label id="ensurePassword_trip"></label></p>
+
+        <div class="sexDiv">
+            用户性别:
+            <input class="userSex" name="sex" value="boy" type="radio">男
+            <input class="userSex" name="sex" value="girl" type="radio">女
+            <label id="sex_trip"></label>
+        </div>
+        <p>
+            电子邮件:
+            <input id="email" type="email" required>
+            <label id="emil_trip"></label>
+        </p>
+        <p style="text-align: center;">
+            <input type="submit" class="button" onblur="checkForm()" value="提交">
+            <input type="reset" class="button" value="重置">
+        </p>
+    </form>
+</div>
+
+</body>
+<script type="text/javascript">
+    function trip(obj, trip) {
+        document.getElementById(obj).innerHTML = "<b>" + trip + "</b>";
+    }
+
+    function checkSex() {
+        var sexNum = document.getElementsByName("sex");
+        var sex = "";
+        for (let i = 0; i < sexNum.length; ++i) {
+            if (sexNum[i].checked) {
+                sex = sexNum[i];
+            }
+
+        }
+        if (sex == "") {
+            trip("sex_trip", "ERROR!!");
+            return false;
+        } else {
+            trip("sex_trip", "OK!!");
+        }
+    }
+
+    function checkForm() {
+        checkSelect();
+        checkHobby();
+        checkSex();
+
+        var trip = document.getElementsByName("em");
+        var tripV = trip.inerHTML();
+        //获取用户名输入项
+        var username = document.getElementById("username");
+        var uName = username.value;
+        if (uName.length < 1 || uName.length > 30) {
+            trip("name_trip", "账号长度为1-30位!!");
+            return false;
+        } else {
+            trip("name_trip", "OK!!");
+
+        }
+
+        //密码长度大于6 和确认必须一致
+        var password = document.getElementById("password");
+        var userPass = password.value;
+        if (userPass.length < 6) {
+            trip("password_trip", "密码要>6位!!");
+            return false;
+        } else {
+            trip("password_trip", "OK!!");
+        }
+
+        //获取确认密码框的值 var
+        var ensurePassword = document.getElementById("ensurePassword");
+        var ensurePass = ensurePassword.value;
+        if (userPass != ensurePass) {
+            trip("ensurePassword_trip", "两次密码不一致!!");
+            return false;
+        }
+
+        //校验邮箱:/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/
+        var inputEmail = document.getElementById("email");
+        var uEmail = inputEmail.value;
+        if (!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/.test(uEmail)) {
+            trip("emil_trip", "邮箱不合法!!");
+            return false;
+        } else {
+            trip("emil_trip", "OK!!");
+        }
+    }
+
+    function submitT() {
+        if (checkForm()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

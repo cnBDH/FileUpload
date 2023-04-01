@@ -1,13 +1,18 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver # 指定使用的驱动
-    url: jdbc:mysql://121.41.53.161:3306/Netdisk?useUnicode=true&characterEncoding=utf8 # spring 是数据库名，连接字符串要指明编码，否则中文通过表单写入数据库时可能会出现乱码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.41.53.161:3306/netdisk?useUnicode=true&characterEncoding=utf8
     username: root
-    password: xiaomi111
+    password: root
   thymeleaf:
-    prefix: classpath:/static/
+    prefix: classpath:/templates/
     suffix: .html
-    mode: LEGACYHTML5
+    mode: HTML
     encoding: UTF-8
     servlet:
       content-type: text/html
@@ -20,7 +25,13 @@ spring:
       location:
       file-size-threshold: 0
       resolve-lazily: false
+  web:
+    resources:
+      static-locations: /META-INF/resources/, classpath:/static/, classpath:/templates/, classpath:/public/
+  mvc:
+    static-path-pattern: /**
+
 mybatis:
-  typeAliasesPackage: com.zjrcu.Dao
-  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.yx.entity
+  mapperLocations: classpath:mapper/*Dao.xml
   #configLocation: classpath:/mybatis-config.xml

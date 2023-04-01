@@ -1,0 +1,64 @@
+body {
+    background: url(/images/background.png);
+    background-size: 100% auto;
+}
+#login_box {
+    width: 20%;
+    height: 400px;
+    background-color: #00000085;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 44px 50px;
+}
+
+#login_box .but1 {
+    border: 0;
+    width: 50%;
+    font-size: 15px;
+    color: #ffffff;
+    background: #f5e0e0ff;
+    padding: 8px 10px;
+    margin-top: 25px;
+}
+#login_box button {
+    outline: none;
+}
+#login_box .form-group .smallimg {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 30px;
+}
+#login_box h1 {
+    color: #ffffff90;
+    margin-top: 5%;
+}
+
+#login_box #form #input_box {
+    margin-top: 5%;
+}
+
+#login_box #form #input_box input {
+    border: 0;
+    width: 60%;
+    font-size: 15px;
+    color: #ffffff;
+    background: #ffffff00;
+    border-bottom: 2px solid #ffffff;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+#login_box .but2 {
+    margin-top: 50px;
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    color: #fff;
+    font-size: 15px;
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    cursor: pointer;
+}
