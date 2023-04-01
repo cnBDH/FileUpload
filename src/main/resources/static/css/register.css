@@ -1,0 +1,82 @@
+body {
+    background: url(/images/background.png);
+    background-size: 100% auto;
+}
+#loginDiv {
+    width: 20%;
+    height: 400px;
+    background-color: #00000085;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 44px 50px;
+}
+
+#name_trip {
+    margin-left: 50px;
+    color: red;
+}
+#register {
+    width: auto;
+}
+p,
+.sexDiv {
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: left;
+    color: azure;
+}
+
+.sexDiv>input {
+    width: 30px;
+    height: 17px;
+}
+
+input,
+select {
+    margin-left: 15px;
+    border-radius: 5px;
+    border-style: hidden;
+    height: 30px;
+    width: 180px;
+    background-color: rgba(105, 105, 105, 0.5);
+    outline: none;
+    color: #f0edf3;
+    padding-left: 10px;
+}
+
+.button {
+    margin-top: 30px;
+    width: 25%;
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    color: #fff;
+    font-size: 15px;
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    cursor: pointer;
+}
+
+.introduce {
+    margin-left: 110px;
+}
+
+.introduce>textarea {
+    background-color: rgba(216, 191, 216, 0.5);
+    border-style: hidden;
+    outline: none;
+    border-radius: 5px;
+}
+
+h1 {
+    color: #ffffff90;
+    margin-top: 5%;
+}
+
+b {
+    margin-left: 50px;
+    color: #FFEB3B;
+    font-size: 10px;
+    font-weight: initial;
+}

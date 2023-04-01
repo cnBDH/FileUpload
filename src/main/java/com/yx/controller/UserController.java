@@ -1,23 +1,25 @@
-package com.zjrcu.Controller;
+package com.yx.controller;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.yx.mapper.UserMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zjrcu.Mapper.User;
-import com.zjrcu.Mapper.UserMapper;
+import java.util.List;
 
+/**
+ * @author YinXiong
+ */
 @Controller
-public class IndexController {
+public class UserController {
 
+    private final UserMapper usermapper;
 
-    @Autowired
-    UserMapper usermapper ;
+    public UserController(UserMapper userMapper) {
+        this.usermapper = userMapper;
+    }
 
     @ResponseBody
     @GetMapping("/user")
@@ -49,8 +51,8 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/user/delete/{id}")
-    public int deleteUser(@PathVariable("id")Integer id) {
-        return usermapper.deleteById(id);
+    public void deleteUser(@PathVariable("id")Integer id) {
+        usermapper.deleteById(id);
     }
 
 }

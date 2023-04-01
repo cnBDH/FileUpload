@@ -1,14 +1,12 @@
-package com.zjrcu.Service;
+package com.yx.service;
 
-import java.nio.charset.StandardCharsets;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.google.common.util.concurrent.RateLimiter;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.google.common.util.concurrent.RateLimiter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.nio.charset.StandardCharsets;
 
 public class LimitService extends HandlerInterceptorAdapter {
 
@@ -31,7 +29,6 @@ public class LimitService extends HandlerInterceptorAdapter {
                          */
                         return true;
                 }
-
                 /**
                  * 获取失败，直接响应“错误信息”
                  * 也可以通过抛出异常，通过全全局异常处理器响应客户端
